@@ -1,7 +1,7 @@
-require "antree/version"
+require "andeogen/version"
 
-module Antree
-  class Antree
+module Andeogen
+  class Andeogen
 
     attr_accessor :results
 

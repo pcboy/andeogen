@@ -1,13 +1,13 @@
-# Antree
+# andeogen
 
-Antree is a tiny gem to ease android layout development.
+andeogen is a tiny gem to ease android layout development.
 It's showing the files dependencies used in the given layouts and let you execute a command on them.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'antree'
+    gem 'andeogen'
 
 And then execute:
 
@@ -15,17 +15,17 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install antree
+    $ gem install andeogen
 
 ## Usage
-    pcboy@home ☭  res % antree --help
+    pcboy@home ☭  res % andeogen --help
     Options:
     --command, -c <s>:   the command to execute on selected items
     --files, -f <s+>:   the layouts to parse
     --help, -h:   Show this message
 
 Example:
-   pcboy@home ☭  res % ruby antree.rb --command vim --files layout/chat_msg.xml layout/chat_msgs.xml
+   pcboy@home ☭  res % andeogen --command vim --files layout/chat_msg.xml layout/chat_msgs.xml
    [
     [0] "src/main/res/drawable-xhdpi/bubble_yellow.9.png",
     [1] "AndroidChatBubbles/HelloBubbles/res/drawable-xhdpi/bubble_yellow.9.png",

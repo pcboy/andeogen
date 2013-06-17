@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'antree'
+require 'andeogen'
 require 'trollop'
 
 OPTS = Trollop::options do
@@ -13,4 +13,4 @@ unless OPTS[:command] && OPTS[:files] && OPTS[:files].count > 0
   Trollop::die :files, "no layout file(s) specified" 
 end
 
-Antree::Antree.new.parse(OPTS[:files]).execute
+Andeogen::Andeogen.new.parse(OPTS[:files]).execute
