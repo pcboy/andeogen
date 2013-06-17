@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'antree'
+require 'trollop'
+
+OPTS = Trollop::options do
+  opt :command, "the command to execute on selected items", :type => String
+  opt :files, "the layouts to parse", :type => :strings
+end
+
+unless OPTS[:command] && OPTS[:files] && OPTS[:files].count > 0
+  Trollop::die :command, "you need to specify a command to execute on each item" 
+  Trollop::die :files, "no layout file(s) specified" 
+end
+
+Antree::Antree.new.parse(OPTS[:files]).execute
