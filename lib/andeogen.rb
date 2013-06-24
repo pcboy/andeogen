@@ -1,5 +1,8 @@
 require "andeogen/version"
 
+require 'nokogiri'
+require 'awesome_print'
+
 module Andeogen
   class Andeogen
 
@@ -36,23 +39,23 @@ module Andeogen
           "#{Shellwords.escape("#{root_path}/#{@results[x]}")}"}.join(" ")}")
       end
     end
-  end
 
-  private
+    private
 
-  def root_path
-    return @root_path unless @root_path.nil?
-    dir = Dir.pwd
-    dir = begin
-      File.expand_path("..", dir)
-    end until dir == "/" || !(Dir.open(dir).entries & ['.git', '.hg']).empty?
-    @root_path = dir
-  end
+    def root_path
+      return @root_path unless @root_path.nil?
+      dir = Dir.pwd
+      dir = begin
+        File.expand_path("..", dir)
+      end until dir == "/" || !(Dir.open(dir).entries & ['.git', '.hg']).empty?
+      @root_path = dir
+    end
 
-  def findpath(elem)
-    Dir.chdir root_path do
-      @results += Dir.glob("**/*#{elem.gsub(/@.+\//,'')}*")
-                     .delete_if{|x| x.include?('.class')}
+    def findpath(elem)
+      Dir.chdir root_path do
+        @results += Dir.glob("**/*#{elem.gsub(/@.+\//,'')}*")
+                       .delete_if{|x| x.include?('.class')}
+      end
     end
   end
 end
